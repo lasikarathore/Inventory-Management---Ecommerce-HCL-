@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
     private static final String IMAGE_DIRECTORY = System.getProperty("user.dir") + "/product-image/";
 
     //AFTER YOUR FROTEND IS SET UP WROTE THIS SO THE IMAGE IS SAVED IN YOUR FRONTEND PUBLIC FOLDER
-    private static final String IMAGE_DIRECTOR_FRONTEND = "/Users/dennismac/phegonDev/ims-angular/public/products/";
+    private static final String IMAGE_DIRECTOR_FRONTEND = "/Users/apple/Desktop/Hcl project1/IMS-angular/frontend/public/products/";
 
 
     @Override
@@ -166,7 +166,7 @@ public class ProductServiceImpl implements ProductService {
         File directory = new File(IMAGE_DIRECTOR_FRONTEND);
 
         if (!directory.exists()){
-            directory.mkdir();
+            directory.mkdirs();
             log.info("Directory was created");
         }
         //generate unique file name for the image

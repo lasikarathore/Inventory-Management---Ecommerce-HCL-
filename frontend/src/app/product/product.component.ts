@@ -28,7 +28,12 @@ export class ProductComponent implements OnInit {
     this.apiService.getAllProducts().subscribe({
       next: (res: any) => {
         const products = res.products || [];
-        console.log(products[0].imageUrl)
+        products.forEach((p: any) => {
+          if (p.imageUrl && !p.imageUrl.startsWith('/') && !p.imageUrl.startsWith('http')) {
+            p.imageUrl = '/' + p.imageUrl;
+          }
+        });
+        console.log(products[0]?.imageUrl)
 
         this.totalPages = Math.ceil(products.length / this.itemsPerPage);
 
